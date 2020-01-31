@@ -3,7 +3,7 @@ export ZSH="/Users/zhivko/.oh-my-zsh"
 
 ZSH_THEME="spaceship"
 
-plugins=(git)
+plugins=(git docker docker-compose yarn kubectl minikube)
 
 export SPACESHIP_KUBECTL_SHOW=true
 export SPACESHIP_KUBECTL_VERSION_SHOW=false
@@ -17,6 +17,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -f "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 [ -f "$DOTFILES/.nvm-auto.zsh" ] && source "$DOTFILES/.nvm-auto.zsh"
+[ -f "$DOTFILES/..kubectl-completion.zsh" ] && source "$DOTFILES/.kubectl-completion.zsh"
 [ -f "$DOTFILES/.path" ] && source $DOTFILES/.path
 [ -f "$DOTFILES/.aliases" ] && source $DOTFILES/.aliases
 

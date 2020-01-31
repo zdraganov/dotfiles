@@ -1,1 +1,8 @@
 alias k="kubectl"
+alias kch="kubectl config use-context"
+
+alias myip='curl ifconfig.co'
+alias gen_pass='openssl rand -base64 16'
+
+alias g="gcloud"
+
