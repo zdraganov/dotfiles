@@ -3,6 +3,6 @@
 set -e
 
 echo "Copy needed files to $HOME"
-cp .gitconfig .gitmessage .vimrc.after .zshrc $HOME
+ln -s .gitconfig .gitmessage .vimrc.after .zshrc .path $HOME
 
 eval $SHELL

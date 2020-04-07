@@ -1,4 +1,6 @@
 PATH="$PATH:$HOME/bin"
+PATH="$PATH:/usr/local/opt/gettext/bin"
 PATH="$PATH:$HOME/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+PATH="$PATH:$GOPATH/bin:$GOROOT/bin"
 
 export PATH

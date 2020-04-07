@@ -13,6 +13,7 @@
         pf = push --force-with-lease
         po = push -u origin
         st = status -s
+        su = "!git rev-parse --abbrev-ref HEAD | xargs -I '{}' git branch --set-upstream-to=origin/'{}' '{}'"
         lf = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
         la = "!git config -l | grep alias | cut -c 7-"
         ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate

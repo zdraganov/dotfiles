@@ -1,8 +1,13 @@
 alias k="kubectl"
 alias kch="kubectl config use-context"
+alias kall="kubectl api-resources --verbs=list --namespaced -o name | xargs -n 1 kubectl get -n stardust"
 
-alias myip='curl ifconfig.co'
+alias myip='curl whatismyip.akamai.com'
 alias gen_pass='openssl rand -base64 16'
+alias dns_flush="sudo killall -HUP mDNSResponder;sudo killall mDNSResponderHelper;sudo dscacheutil -flushcache"
 
 alias g="gcloud"
+alias gcsp="gcloud config set project"
+
+alias jump="gcloud compute ssh dev-jump --project dev-skysql-infra --zone us-central1-a"
 

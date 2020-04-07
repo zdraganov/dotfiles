@@ -12,6 +12,9 @@ source $ZSH/oh-my-zsh.sh
 export LC_ALL=en_US.UTF-8
 export DOTFILES=$HOME/dotfiles
 
+export GOPATH=$HOME/go
+export GOROOT=/usr/local/opt/go/libexec
+
 export NVM_DIR="$HOME/.nvm"
 [ -f "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -f "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
