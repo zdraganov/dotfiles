@@ -3,7 +3,7 @@ export ZSH="/Users/zhivko/.oh-my-zsh"
 
 ZSH_THEME="spaceship"
 
-plugins=(git docker docker-compose yarn kubectl minikube)
+plugins=(git docker docker-compose yarn kubectl minikube autoswitch_virtualenv)
 
 export SPACESHIP_KUBECTL_SHOW=true
 export SPACESHIP_KUBECTL_VERSION_SHOW=false
