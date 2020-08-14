@@ -7,6 +7,7 @@ alias gen_pass='openssl rand -base64 16'
 alias dns_flush="sudo killall -HUP mDNSResponder;sudo killall mDNSResponderHelper;sudo dscacheutil -flushcache"
 
 alias g="gcloud"
+alias gca="gcloud config configurations activate"
 alias gcsp="gcloud config set project"
 
 # alias jump="gcloud compute ssh dev-jump --project dev-skysql-infra --zone us-central1-a"
