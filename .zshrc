@@ -31,3 +31,7 @@ if [ -f '/Users/zhivko/Dev/Tools/google-cloud-sdk/path.zsh.inc' ]; then . '/User
 if [ -f '/Users/zhivko/Dev/Tools/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/zhivko/Dev/Tools/google-cloud-sdk/completion.zsh.inc'; fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi

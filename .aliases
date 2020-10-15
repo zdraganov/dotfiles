@@ -24,3 +24,27 @@ jump() {
     gcloud config set compute/zone us-central1-a
     gcloud compute ssh $1-jump --tunnel-through-iap
 }
+
+skysql_stardust () {
+    set -ex
+
+    if [ "$1" "==" "prod" ]; then
+        gcloud config configurations activate skysql
+    elif [ "$1" "==" "stage" ]; then
+        gcloud config configurations activate skysql
+    else
+        gcloud config configurations activate mariadb
+    fi
+
+    region=""
+
+    if [ "$2" "==" "us" ]; then
+        region="us-central1"
+    elif [ "$2" "==" "asia" ]; then
+        region="asia-southeast1"
+    else
+        region="europe-west1"
+    fi
+
+    gcloud container clusters get-credentials $region-$3 --zone $region --project $1-skysql-stardust
+}
