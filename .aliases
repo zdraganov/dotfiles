@@ -23,9 +23,7 @@ jump() {
     gcloud compute ssh $1-jump --tunnel-through-iap
 }
 
-skysql_stardust () {
-    set -ex
-
+_skysql_stardust () {
     if [ "$1" "==" "prod" ]; then
         gcloud config configurations activate skysql
     elif [ "$1" "==" "stage" ]; then
@@ -45,4 +43,8 @@ skysql_stardust () {
     fi
 
     gcloud container clusters get-credentials $region-$3 --zone $region --project $1-skysql-stardust
+}
+
+skysql_stardust () {
+   _skysql_stardust $1 $2 $3
 }

@@ -3,7 +3,7 @@ export ZSH="/Users/zhivko/.oh-my-zsh"
 
 ZSH_THEME="spaceship"
 
-plugins=(git docker docker-compose yarn kubectl minikube autoswitch_virtualenv)
+plugins=(git docker docker-compose yarn kubectl minikube autoswitch_virtualenv poetry)
 
 export SPACESHIP_KUBECTL_SHOW=true
 export SPACESHIP_KUBECTL_VERSION_SHOW=false
@@ -14,6 +14,9 @@ export DOTFILES=$HOME/dotfiles
 
 export GOPATH=$HOME/go
 export GOROOT=/usr/local/opt/go/libexec
+export GO111MODULE=auto
+
+export CLOUDSDK_PYTHON=python2
 
 export NVM_DIR="$HOME/.nvm"
 [ -f "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"  # This loads nvm
