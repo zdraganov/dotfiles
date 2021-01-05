@@ -10,41 +10,4 @@ alias g="gcloud"
 alias gca="gcloud config configurations activate"
 alias gcsp="gcloud config set project"
 
-jump() {
-    if [ "$1" "==" "prod" ]; then
-        gcloud config configurations activate skysql
-    elif [ "$1" "==" "stage" ]; then
-        gcloud config configurations activate skysql
-    else
-        gcloud config configurations activate mariadb
-    fi
-    gcloud config set project $1-skysql-infra
-    gcloud config set compute/zone us-central1-a
-    gcloud compute ssh $1-jump --tunnel-through-iap
-}
-
-_skysql_stardust () {
-    if [ "$1" "==" "prod" ]; then
-        gcloud config configurations activate skysql
-    elif [ "$1" "==" "stage" ]; then
-        gcloud config configurations activate skysql
-    else
-        gcloud config configurations activate mariadb
-    fi
-
-    region=""
-
-    if [ "$2" "==" "us" ]; then
-        region="us-central1"
-    elif [ "$2" "==" "asia" ]; then
-        region="asia-southeast1"
-    else
-        region="europe-west1"
-    fi
-
-    gcloud container clusters get-credentials $region-$3 --zone $region --project $1-skysql-stardust
-}
-
-skysql_stardust () {
-   _skysql_stardust $1 $2 $3
-}
+alias csum="md5sum <<<"
