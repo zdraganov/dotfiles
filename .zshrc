@@ -1,9 +1,9 @@
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/zhivko/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="spaceship"
 
-plugins=(git docker docker-compose yarn kubectl minikube autoswitch_virtualenv poetry zsh-autosuggestions)
+plugins=(git docker docker-compose yarn kubectl minikube fzf)
 
 export SPACESHIP_KUBECTL_SHOW=true
 export SPACESHIP_KUBECTL_VERSION_SHOW=false
@@ -26,14 +26,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -f "$DOTFILES/..kubectl-completion.zsh" ] && source "$DOTFILES/.kubectl-completion.zsh"
 [ -f "$DOTFILES/.path" ] && source $DOTFILES/.path
 [ -f "$DOTFILES/.aliases" ] && source $DOTFILES/.aliases
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/zhivko/Dev/Tools/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/zhivko/Dev/Tools/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/zhivko/Dev/Tools/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/zhivko/Dev/Tools/google-cloud-sdk/completion.zsh.inc'; fi
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"

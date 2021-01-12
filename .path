@@ -1,4 +1,4 @@
-PATH="$PATH:$HOME/bin:/usr/local/sbin"
+PATH="$PATH:/usr/local/bin:$HOME/bin:/usr/local/sbin"
 PATH="$PATH:/usr/local/opt/gettext/bin"
 PATH="$PATH:$HOME/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 PATH="$PATH:$GOPATH/bin:$GOROOT/bin"
