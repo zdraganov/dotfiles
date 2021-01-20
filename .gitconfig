@@ -25,8 +25,8 @@
         ff = ff-all-branches
 [core]
         excludesfile = /Users/zhivko/.global_ignore
-	autocrlf = input
-	editor = vim
+        autocrlf = input
+        editor = vim
 [commit]
         template = ~/.gitmessage
 [fetch]
@@ -35,11 +35,10 @@
         autosquash = true
 [user]
         name = Zhivko Draganov
-        # email = zhivko.draganov@gmail.com
-        email = zhivko.draganov@mariadb.com
+        email = zhivko.draganov@gmail.com
 [rerere]
         enabled = true
 [pull]
-	rebase = true
+        rebase = true
 [status]
-	submoduleSummary = true
+        submoduleSummary = true
