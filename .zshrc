@@ -11,6 +11,8 @@ export SPACESHIP_KUBECTL_VERSION_SHOW=false
 export SPACESHIP_GCLOUD_SHOW=false
 export SPACESHIP_AWS_SHOW=true
 
+export ZSH_DISABLE_COMPFIX=true
+
 source $ZSH/oh-my-zsh.sh
 
 export LC_ALL=en_US.UTF-8
@@ -22,9 +24,8 @@ export GO111MODULE=auto
 
 export CLOUDSDK_PYTHON=python2
 
-export NVM_DIR="$HOME/.nvm"
-[ -f "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -f "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
 
 [ -f "$DOTFILES/.nvm-auto.zsh" ] && source "$DOTFILES/.nvm-auto.zsh"
 [ -f "$DOTFILES/..kubectl-completion.zsh" ] && source "$DOTFILES/.kubectl-completion.zsh"
@@ -40,3 +41,5 @@ if [ -f "$HOME/Dev/Tools/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/Dev/Too
 
 # The next line enables shell command completion for gcloud.
 if [ -f "$HOME/Dev/Tools/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/Dev/Tools/google-cloud-sdk/completion.zsh.inc"; fi
+
+export MACPREFS_BACKUP_DIR="$HOME/dotfiles/macprefs_backup"

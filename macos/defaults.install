@@ -1,0 +1,7 @@
+#!/bin/sh
+#
+# macOS Specific settings
+
+echo "- Setting up macOS"
+
+defaults write com.apple.screencapture location "~/Screenshots"
