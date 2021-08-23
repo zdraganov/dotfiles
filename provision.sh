@@ -11,8 +11,18 @@ brew install nvm
 brew install iterm2
 brew install htop
 brew install macvim
+brew install lsd
+brew install bat
+
+brew tap homebrew/cask-fonts
+brew install --cask font-hack-nerd-font
+
+brew tap yoheimuta/protolint
+brew install protolint
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
 curl -L https://bit.ly/janus-bootstrap | bash
 
 git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1

@@ -11,3 +11,11 @@ alias gca="gcloud config configurations activate"
 alias gcsp="gcloud config set project"
 
 alias csum="md5sum <<<"
+
+alias dc="docker-compose"
+
+alias ls=lsd
+alias l='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+alias lt='ls --tree'
