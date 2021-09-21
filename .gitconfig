@@ -5,6 +5,7 @@
 [alias]
         aa = add --all
         ca = commit --amend -C HEAD
+        caa = commit --amend
         b = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
         ci = commit -v
         co = checkout
