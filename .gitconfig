@@ -11,7 +11,7 @@
         co = checkout
         cb = checkout -b
         fo = fetch origin
-        pf = push --force-with-lease
+        pf = push --force-with-lease # remove for now --force-with-lease
         po = push -u origin
         st = status -s
         su = "!git rev-parse --abbrev-ref HEAD | xargs -I '{}' git branch --set-upstream-to=origin/'{}' '{}'"

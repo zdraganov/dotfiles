@@ -10,23 +10,29 @@ export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="spaceship"
 
-plugins=(git docker docker-compose yarn kubectl minikube aws fzf zsh-completions)
+plugins=(git docker docker-compose yarn kubectl minikube aws fzf zsh-completions kops)
 autoload -U compinit && compinit
 
+export SPACESHIP_TIME_SHOW=true
 export SPACESHIP_KUBECTL_SHOW=true
 export SPACESHIP_KUBECTL_VERSION_SHOW=false
 export SPACESHIP_GCLOUD_SHOW=false
 export SPACESHIP_AWS_SHOW=true
+export SPACESHIP_DOCKER_SHOW=false
 
 export ZSH_DISABLE_COMPFIX=true
+
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
 source $ZSH/oh-my-zsh.sh
 
 export LC_ALL=en_US.UTF-8
 export DOTFILES=$HOME/dotfiles
 
+[ -f "$DOTFILES/.path" ] && source $DOTFILES/.path
+
 export GOPATH=$HOME/go
-export GOROOT=/usr/local/opt/go/libexec
+export GOROOT=$(brew --prefix go)/libexec
 export GO111MODULE=auto
 
 export CLOUDSDK_PYTHON=python2
@@ -41,7 +47,6 @@ export BAT_THEME=TwoDark
 
 [ -f "$DOTFILES/.nvm-auto.zsh" ] && source "$DOTFILES/.nvm-auto.zsh"
 [ -f "$DOTFILES/..kubectl-completion.zsh" ] && source "$DOTFILES/.kubectl-completion.zsh"
-[ -f "$DOTFILES/.path" ] && source $DOTFILES/.path
 [ -f "$DOTFILES/.aliases" ] && source $DOTFILES/.aliases
 
 if command -v pyenv 1>/dev/null 2>&1; then
@@ -54,13 +59,14 @@ fi
 
 export MACPREFS_BACKUP_DIR="$HOME/dotfiles/macprefs_backup"
 
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/zhivko/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/zhivko/Downloads/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/zhivko/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/zhivko/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+autoload -U compinit; compinit

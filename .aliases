@@ -1,3 +1,6 @@
+alias brow='arch --x86_64 /usr/local/Homebrew/bin/brew'
+alias ib='PATH=/usr/local/bin:$PATH'
+
 alias k="kubectl"
 alias kch="kubectl config use-context"
 alias kall="kubectl api-resources --verbs=list --namespaced -o name | xargs -n 1 kubectl get -n stardust"
@@ -21,3 +24,6 @@ alias lla='ls -la'
 alias lt='ls --tree'
 
 alias vim='nvim'
+
+# This is M1 specific, as for M1, I do not use docker
+# alias docker="lima nerdctl"
