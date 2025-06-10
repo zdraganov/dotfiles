@@ -4,5 +4,19 @@ PATH="$PATH:/usr/local/opt/gettext/bin"
 PATH="$PATH:$HOME/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 PATH="$PATH:$GOPATH/bin:$GOROOT/bin"
 PATH="$PATH:${KREW_ROOT:-$HOME/.krew}/bin"
+PATH="$PATH/.rbenv/bin:$PATH"
+PATH="$PATH:$(go env GOPATH)/bin"
+PATH="$PATH:$HOME/.cargo/bin"
+
+ANDROID_HOME=$HOME/Library/Android/sdk
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export ANDROID_SDK_HOME=$HOME/Library/Android/sdk
+export ANDROID_AVD_HOME=$HOME/.android/avd
+
+PATH=$PATH:$ANDROID_HOME/emulator
+PATH=$PATH:$ANDROID_HOME/platform-tools
+PATH=$PATH:$ANDROID_AVD_HOME
+
+PATH="/Users/zhivko/.local/bin:$PATH"
 
 export PATH

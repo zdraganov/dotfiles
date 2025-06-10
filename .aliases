@@ -25,5 +25,7 @@ alias lt='ls --tree'
 
 alias vim='nvim'
 
+alias ibrew='arch -x86_64 /usr/local/bin/brew'
+
 # This is M1 specific, as for M1, I do not use docker
 # alias docker="lima nerdctl"
