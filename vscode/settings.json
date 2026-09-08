@@ -30,8 +30,8 @@
     },
     "terminal.external.osxExec": "iTerm2.app",
     "terminal.integrated.fontFamily": "Hack Nerd Font Mono",
-    "terminal.integrated.fontSize": 14,
-    "editor.fontSize": 14,
+    "terminal.integrated.fontSize": 20,
+    "editor.fontSize": 20,
     "yaml.customTags": [
         "!And",
         "!And sequence",
