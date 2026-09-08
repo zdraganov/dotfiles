@@ -10,7 +10,8 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 echo "==> brew bundle"
 brew update
-brew trust yoheimuta/protolint >/dev/null 2>&1 || true   # third-party tap; Homebrew 6 refuses untrusted taps
+# third-party taps; Homebrew 6 refuses untrusted taps
+for t in yoheimuta/protolint netbirdio/tap; do brew trust "$t" >/dev/null 2>&1 || true; done
 # Casks that ship a .pkg (zulu@17) need sudo; when run without a terminal they fail
 # and are reported at the end. Re-run this script from a real terminal to pick them up.
 brew bundle --file "$DOTFILES_DIR/Brewfile" || echo "!! some Brewfile items failed (see above) — the rest of provisioning continues"

@@ -1,5 +1,6 @@
 # brew bundle --file ~/Dev/zdraganov/dotfiles/Brewfile
 tap "yoheimuta/protolint"
+tap "netbirdio/tap"
 
 # shell & cli
 brew "git"
@@ -30,6 +31,10 @@ brew "yoheimuta/protolint/protolint"
 
 # secrets
 brew "bitwarden-cli"
+
+# vpn / mesh network
+brew "netbirdio/tap/netbird"          # CLI + daemon
+cask "netbirdio/tap/netbird-ui"       # menu bar app; its installer needs sudo (run from a real terminal)
 
 # apps
 cask "iterm2"
