@@ -37,6 +37,8 @@ ln -sfn "$DOTFILES_DIR/.ssh_config" "$HOME/.ssh/config"
 echo "==> iTerm2 dynamic profile (Hack Nerd Font + One Dark)"
 mkdir -p "$HOME/Library/Application Support/iTerm2/DynamicProfiles"
 ln -sfn "$DOTFILES_DIR/iterm2/zdraganov.json" "$HOME/Library/Application Support/iTerm2/DynamicProfiles/zdraganov.json"
+# ...and push the same values into the Default profile (a dynamic profile can't be the default reliably)
+"$DOTFILES_DIR/iterm2/apply-profile.sh" || echo "!! iTerm2 profile not applied — quit iTerm2 and run iterm2/apply-profile.sh"
 
 echo "==> VS Code settings + snippets (extensions come from the Brewfile)"
 VSCODE_USER="$HOME/Library/Application Support/Code/User"
