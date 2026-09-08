@@ -29,7 +29,7 @@
         "editor.defaultFormatter": "esbenp.prettier-vscode",
     },
     "terminal.external.osxExec": "iTerm2.app",
-    "terminal.integrated.fontFamily": "Hack Nerd Font Mono",
+    "terminal.integrated.fontFamily": "MesloLGS NF",
     "terminal.integrated.fontSize": 14,
     "editor.fontSize": 14,
     "yaml.customTags": [

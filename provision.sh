@@ -34,6 +34,12 @@ for f in .zshrc .zprofile .aliases .gitconfig .gitmessage .global_ignore .tmux.c
 done
 ln -sfn "$DOTFILES_DIR/.ssh_config" "$HOME/.ssh/config"
 
+echo "==> MesloLGS NF (the font powerlevel10k is designed for)"
+for style in Regular Bold Italic "Bold Italic"; do
+  f="$HOME/Library/Fonts/MesloLGS NF $style.ttf"
+  [ -f "$f" ] || curl -fsSL -o "$f" "https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20${style// /%20}.ttf"
+done
+
 echo "==> iTerm2 dynamic profile (Hack Nerd Font + One Dark)"
 mkdir -p "$HOME/Library/Application Support/iTerm2/DynamicProfiles"
 ln -sfn "$DOTFILES_DIR/iterm2/zdraganov.json" "$HOME/Library/Application Support/iTerm2/DynamicProfiles/zdraganov.json"

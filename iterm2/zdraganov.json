@@ -3,8 +3,8 @@
     {
       "Name": "zdraganov",
       "Guid": "zdraganov-one-dark-nerd",
-      "Normal Font": "HackNFM-Regular 14",
-      "Non Ascii Font": "HackNFM-Regular 14",
+      "Normal Font": "MesloLGS-NF-Regular 14",
+      "Non Ascii Font": "MesloLGS-NF-Regular 14",
       "Use Non-ASCII Font": false,
       "ASCII Ligatures": false,
       "Use Bold Font": true,
