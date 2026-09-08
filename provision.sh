@@ -38,6 +38,14 @@ echo "==> iTerm2 dynamic profile (Hack Nerd Font + One Dark)"
 mkdir -p "$HOME/Library/Application Support/iTerm2/DynamicProfiles"
 ln -sfn "$DOTFILES_DIR/iterm2/zdraganov.json" "$HOME/Library/Application Support/iTerm2/DynamicProfiles/zdraganov.json"
 
+echo "==> VS Code settings + snippets (extensions come from the Brewfile)"
+VSCODE_USER="$HOME/Library/Application Support/Code/User"
+mkdir -p "$VSCODE_USER"
+[ -e "$VSCODE_USER/settings.json" ] && [ ! -L "$VSCODE_USER/settings.json" ] && mv "$VSCODE_USER/settings.json" "$VSCODE_USER/settings.json.bak"
+ln -sfn "$DOTFILES_DIR/vscode/settings.json" "$VSCODE_USER/settings.json"
+[ -d "$VSCODE_USER/snippets" ] && [ ! -L "$VSCODE_USER/snippets" ] && mv "$VSCODE_USER/snippets" "$VSCODE_USER/snippets.bak"
+ln -sfn "$DOTFILES_DIR/vscode/snippets" "$VSCODE_USER/snippets"
+
 echo "==> macOS defaults"
 sh "$DOTFILES_DIR/macos/defaults.install"
 

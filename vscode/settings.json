@@ -1,0 +1,163 @@
+{
+    "go.useLanguageServer": true,
+    "go.lintTool": "revive",
+    "go.lintFlags": ["-config=${workspaceFolder}/revive.toml"],
+    "[go]": {
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit",
+        },
+        // Optional: Disable snippets, as they conflict with completion ranking.
+        "editor.snippetSuggestions": "none",
+        "editor.defaultFormatter": "golang.go",
+    },
+    "[go.mod]": {
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit",
+        },
+    },
+    "gopls": {
+        // Add parameter placeholders when completing a function.
+        "usePlaceholders": true,
+        // If true, enable additional analyses with staticcheck.
+        // Warning: This will significantly increase memory usage.
+        "staticcheck": true,
+    },
+    "files.insertFinalNewline": true,
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+    },
+    "terminal.external.osxExec": "iTerm2.app",
+    "terminal.integrated.fontFamily": "Hack Nerd Font Mono",
+    "yaml.customTags": [
+        "!And",
+        "!And sequence",
+        "!If",
+        "!If sequence",
+        "!Not",
+        "!Not sequence",
+        "!Equals",
+        "!Equals sequence",
+        "!Or",
+        "!Or sequence",
+        "!FindInMap",
+        "!FindInMap sequence",
+        "!Base64",
+        "!Join",
+        "!Join sequence",
+        "!Cidr",
+        "!Ref",
+        "!Sub",
+        "!Sub sequence",
+        "!GetAtt",
+        "!GetAZs",
+        "!ImportValue",
+        "!ImportValue sequence",
+        "!Select",
+        "!Select sequence",
+        "!Split",
+        "!Split sequence",
+    ],
+    "yaml.validate": false,
+    "search.exclude": {
+        "**/build": true,
+    },
+    "redhat.telemetry.enabled": true,
+    "cSpell.enabled": false,
+    "eslint.format.enable": true,
+    "workbench.editorAssociations": {
+        "*.mp4": "default",
+    },
+    "editor.inlineSuggest.enabled": true,
+    "vs-kubernetes": {
+        "vs-kubernetes.crd-code-completion": "disabled",
+    },
+    "prettier.tabWidth": 4,
+    "editor.tabSize": 2,
+    "go.toolsManagement.autoUpdate": true,
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+    },
+    "editor.accessibilitySupport": "off",
+    "go.vetFlags": ["-composites=false"],
+    "editor.minimap.enabled": false,
+    "[python]": {
+        "editor.formatOnType": true,
+    },
+    "git.autofetch": true,
+    "git.openRepositoryInParentFolders": "always",
+    "aws.codeWhisperer.shareCodeWhispererContentWithAWS": false,
+    "aws.codeWhisperer.includeSuggestionsWithCodeReferences": false,
+    "aws.suppressPrompts": {
+        "codeWhispererNewWelcomeMessage": true,
+    },
+    "[go][go.mod]": {
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit",
+        },
+    },
+    "nxConsole.showNodeVersionOnStartup": false,
+    "accessibility.signals.lineHasError": {
+        "sound": "off",
+    },
+    "accessibility.signals.lineHasFoldedArea": {
+        "sound": "off",
+    },
+    "accessibility.signals.lineHasBreakpoint": {
+        "sound": "off",
+    },
+    "accessibility.signals.lineHasInlineSuggestion": {
+        "sound": "off",
+    },
+    "accessibility.signals.onDebugBreak": {
+        "sound": "off",
+    },
+    "accessibility.signals.noInlayHints": {
+        "sound": "off",
+    },
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "makefile.configureOnOpen": false,
+    "workbench.colorTheme": "Monokai Pro",
+    "workbench.iconTheme": "Monokai Pro Icons",
+    "docker.extension.enableComposeLanguageServer": false,
+    "debug.disassemblyView.showSourceCode": false,
+    "[dockercompose]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.autoIndent": "advanced",
+        "editor.quickSuggestions": {
+            "other": true,
+            "comments": false,
+            "strings": true,
+        },
+        "editor.defaultFormatter": "redhat.vscode-yaml",
+    },
+    "[github-actions-workflow]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml",
+    },
+    "aws.cloudformation.telemetry.enabled": false,
+    "python.analysis.typeCheckingMode": "basic",
+    "[dart]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnType": true,
+        "editor.rulers": [80],
+        "editor.selectionHighlight": false,
+        "editor.tabCompletion": "onlySnippets",
+        "editor.wordBasedSuggestions": "off",
+    },
+    "comments.openView": "never",
+    "containers.containerClient": "com.microsoft.visualstudio.containers.docker",
+    "containers.orchestratorClient": "com.microsoft.visualstudio.orchestrators.dockercompose",
+    "yaml.disableSchemaDetection": [
+        "**/.github/workflows/*.yml",
+        "**/.github/workflows/*.yaml",
+        "**/.gitea/workflows/*.yml",
+        "**/.gitea/workflows/*.yaml",
+        "**/.forgejo/workflows/*.yml",
+        "**/.forgejo/workflows/*.yaml",
+    ],
+    // "editor.codeActionsOnSave": {
+    //     "source.fixAll.eslint": "explicit",
+    // }
+}
