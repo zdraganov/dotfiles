@@ -1,3 +1,9 @@
+[user]
+        name = Zhivko Draganov
+        email = zhivko.draganov@gmail.com
+# Work repos get the work e-mail (same GitHub account, different verified address).
+[includeIf "gitdir:~/Dev/seven-of-di/"]
+        path = ~/Dev/zdraganov/dotfiles/.gitconfig-work
 [push]
         default = current
 [color]
@@ -11,7 +17,7 @@
         co = checkout
         cb = checkout -b
         fo = fetch origin
-				pf = push --force-with-lease
+        pf = push --force-with-lease
         po = push -u origin
         st = status -s
         su = "!git rev-parse --abbrev-ref HEAD | xargs -I '{}' git branch --set-upstream-to=origin/'{}' '{}'"
@@ -21,22 +27,17 @@
         ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
         l  = log --oneline --decorate
         rc = rebase --continue
-        of = !git fetch origin staging master > /dev/null 2>&1 && git outstanding-features -f origin/staging -t origin/master
         au = update-index --assume-unchanged
-        ff = ff-all-branches
 [core]
-        excludesfile = /Users/zhivko/.global_ignore
+        excludesfile = ~/.global_ignore
         autocrlf = input
-        editor = vim
+        editor = nvim
 [commit]
         template = ~/.gitmessage
 [fetch]
         prune = true
 [rebase]
         autosquash = true
-[user]
-        name = Zhivko Draganov
-        email = zhivko.draganov@gmail.com
 [rerere]
         enabled = false
 [pull]
@@ -44,9 +45,8 @@
 [status]
         submoduleSummary = true
 [init]
-	defaultBranch = main
-
+        defaultBranch = main
 [diff]
-    tool = vscode
+        tool = vscode
 [difftool "vscode"]
-    cmd = code --wait --diff $LOCAL $REMOTE
+        cmd = code --wait --diff $LOCAL $REMOTE

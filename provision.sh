@@ -1,40 +1,60 @@
-#!/bin/sh
+#!/usr/bin/env bash
+# Idempotent machine bootstrap. Requires Homebrew already installed (which pulls in the
+# Xcode Command Line Tools):  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+set -euo pipefail
 
-set -e
+DOTFILES_DIR="$HOME/Dev/zdraganov/dotfiles"
+ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
 
-DOTFILES_DIR=$HOME/dotfiles
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
+echo "==> brew bundle"
 brew update
-brew install zsh
-brew install fzf
-brew install nvm
-brew install iterm2
-brew install htop
-brew install macvim
-brew install lsd
-brew install bat
+# third-party taps; Homebrew 6 refuses untrusted taps
+for t in yoheimuta/protolint netbirdio/tap; do brew trust "$t" >/dev/null 2>&1 || true; done
+# Casks that ship a .pkg (zulu@17) need sudo; when run without a terminal they fail
+# and are reported at the end. Re-run this script from a real terminal to pick them up.
+brew bundle --file "$DOTFILES_DIR/Brewfile" || echo "!! some Brewfile items failed (see above) — the rest of provisioning continues"
 
-brew tap homebrew/cask-fonts
-brew install --cask font-hack-nerd-font
+echo "==> oh-my-zsh + plugins"
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+  RUNZSH=no KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
+clone() { [ -d "$2" ] || git clone --depth=1 "$1" "$2"; }
+clone https://github.com/romkatv/powerlevel10k.git      "$ZSH_CUSTOM/themes/powerlevel10k"
+clone https://github.com/zsh-users/zsh-completions.git  "$ZSH_CUSTOM/plugins/zsh-completions"
+clone https://github.com/wfxr/forgit.git                "$ZSH_CUSTOM/plugins/forgit"
 
-brew tap yoheimuta/protolint
-brew install protolint
+mkdir -p "$HOME/.nvm" "$HOME/.ssh"
+chmod 700 "$HOME/.ssh"
 
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+echo "==> link dotfiles into \$HOME"
+for f in .zshrc .zprofile .aliases .gitconfig .gitmessage .global_ignore .tmux.conf .p10k.zsh; do
+  ln -sfn "$DOTFILES_DIR/$f" "$HOME/$f"
+done
+ln -sfn "$DOTFILES_DIR/.ssh_config" "$HOME/.ssh/config"
 
-curl -L https://bit.ly/janus-bootstrap | bash
+echo "==> MesloLGS NF (the font powerlevel10k is designed for)"
+for style in Regular Bold Italic "Bold Italic"; do
+  f="$HOME/Library/Fonts/MesloLGS NF $style.ttf"
+  [ -f "$f" ] || curl -fsSL -o "$f" "https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20${style// /%20}.ttf"
+done
 
-git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
-ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme" 
+echo "==> iTerm2 dynamic profile (Hack Nerd Font + One Dark)"
+mkdir -p "$HOME/Library/Application Support/iTerm2/DynamicProfiles"
+ln -sfn "$DOTFILES_DIR/iterm2/zdraganov.json" "$HOME/Library/Application Support/iTerm2/DynamicProfiles/zdraganov.json"
+# ...and push the same values into the Default profile (a dynamic profile can't be the default reliably)
+"$DOTFILES_DIR/iterm2/apply-profile.sh" || echo "!! iTerm2 profile not applied — quit iTerm2 and run iterm2/apply-profile.sh"
 
-git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
+echo "==> VS Code settings + snippets (extensions come from the Brewfile)"
+VSCODE_USER="$HOME/Library/Application Support/Code/User"
+mkdir -p "$VSCODE_USER"
+[ -e "$VSCODE_USER/settings.json" ] && [ ! -L "$VSCODE_USER/settings.json" ] && mv "$VSCODE_USER/settings.json" "$VSCODE_USER/settings.json.bak"
+ln -sfn "$DOTFILES_DIR/vscode/settings.json" "$VSCODE_USER/settings.json"
+[ -d "$VSCODE_USER/snippets" ] && [ ! -L "$VSCODE_USER/snippets" ] && mv "$VSCODE_USER/snippets" "$VSCODE_USER/snippets.bak"
+ln -sfn "$DOTFILES_DIR/vscode/snippets" "$VSCODE_USER/snippets"
 
-mkdir -p $HOME/.nvm
+echo "==> macOS defaults"
+sh "$DOTFILES_DIR/macos/defaults.install"
 
-echo "Copy needed files to $HOME"
-ln -s $DOTFILES_DIR/.gitconfig $DOTFILES_DIR/.gitmessage $DOTFILES_DIR/.vimrc $DOTFILES_DIR/.vimrc.after $DOTFILES_DIR/.zshrc $DOTFILES_DIR/.path $DOTFILES_DIR/.tmux.conf $HOME
-
-source $DOTFILES_DIR/macos/defaults.install
-eval $SHELL
-
+echo "==> done. Open a new shell (or: exec zsh)."

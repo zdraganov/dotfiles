@@ -1,0 +1,13 @@
+# Added by OrbStack: 'orb' SSH host for Linux machines
+# This only works if it's at the top of ssh_config (before any Host blocks).
+# This won't be added again if you remove it.
+Include ~/.orbstack/ssh/config
+
+# Linked to ~/.ssh/config. Keys are served by the Bitwarden desktop app's SSH agent,
+# so GUI apps (VS Code, Fork...) that don't inherit SSH_AUTH_SOCK still find them.
+Host *
+    IdentityAgent ~/.bitwarden-ssh-agent.sock
+    AddKeysToAgent no
+
+Host github.com
+    User git
