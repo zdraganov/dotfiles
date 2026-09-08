@@ -38,6 +38,8 @@ cask "netbirdio/tap/netbird-ui"       # menu bar app; its installer needs sudo (
 
 # apps
 cask "iterm2"
+cask "claude"            # Claude desktop app
+cask "claude-code"       # Claude Code CLI
 cask "visual-studio-code"
 cask "bitwarden"
 cask "orbstack"           # lightweight Docker replacement (backend dev env is docker-compose)
