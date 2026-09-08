@@ -1,3 +1,1 @@
-macprefs_backup/ssh/*
-!macprefs_backup/ssh/*.pub
 .DS_Store

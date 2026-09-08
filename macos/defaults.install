@@ -1,7 +1,6 @@
 #!/bin/sh
-#
-# macOS Specific settings
-
-echo "- Setting up macOS"
-
-defaults write com.apple.screencapture location "~/Screenshots"
+# macOS specific settings
+echo "- Setting up macOS defaults"
+mkdir -p "$HOME/Screenshots"
+defaults write com.apple.screencapture location "$HOME/Screenshots"
+killall SystemUIServer 2>/dev/null || true
