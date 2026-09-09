@@ -8,4 +8,6 @@ killall SystemUIServer 2>/dev/null || true
 # Keyboard: switch input source with Option+` (symbolic hotkey 60 = "Select the previous input source";
 # parameters = ascii, virtual keycode, modifier flags — 524288 is Option)
 defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 60 '{enabled = 1; value = {parameters = (96, 50, 524288); type = standard;};}'
+# ...and "Select next source in input menu" (61) with Ctrl+Option+` (786432 = Ctrl + Option)
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 61 '{enabled = 1; value = {parameters = (96, 50, 786432); type = standard;};}'
 /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u 2>/dev/null || true
