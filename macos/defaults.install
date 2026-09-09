@@ -4,3 +4,8 @@ echo "- Setting up macOS defaults"
 mkdir -p "$HOME/Screenshots"
 defaults write com.apple.screencapture location "$HOME/Screenshots"
 killall SystemUIServer 2>/dev/null || true
+
+# Keyboard: switch input source with Option+` (symbolic hotkey 60 = "Select the previous input source";
+# parameters = ascii, virtual keycode, modifier flags — 524288 is Option)
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 60 '{enabled = 1; value = {parameters = (96, 50, 524288); type = standard;};}'
+/System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u 2>/dev/null || true
