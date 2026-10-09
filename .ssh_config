@@ -11,3 +11,10 @@ Host *
 
 Host github.com
     User git
+
+# Proxmox host for the homelab repo. The private key is in the Bitwarden agent;
+# naming its public file picks that key and stops ssh offering the GitHub one first.
+Host pve.lan
+    User root
+    IdentityFile ~/.ssh/homelab.pub
+    IdentitiesOnly yes

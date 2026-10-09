@@ -159,6 +159,7 @@
         "**/.forgejo/workflows/*.yml",
         "**/.forgejo/workflows/*.yaml",
     ],
+    "claudeCode.preferredLocation": "panel",
     // "editor.codeActionsOnSave": {
     //     "source.fixAll.eslint": "explicit",
     // }
