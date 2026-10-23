@@ -9,4 +9,4 @@ load-nvmrc() {
   fi
 }
 add-zsh-hook chpwd load-nvmrc
-load-nvmrc
+load-nvmrc >/dev/null  # silent at startup: p10k instant prompt breaks on console output
