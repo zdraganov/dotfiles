@@ -160,6 +160,7 @@
         "**/.forgejo/workflows/*.yaml",
     ],
     "claudeCode.preferredLocation": "panel",
+    "claudeCode.hideOnboarding": true,
     // "editor.codeActionsOnSave": {
     //     "source.fixAll.eslint": "explicit",
     // }
