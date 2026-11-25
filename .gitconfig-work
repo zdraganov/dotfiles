@@ -1,2 +1,6 @@
 [user]
         email = zhivko@intobridge.com
+# The work SSH key, from the work Bitwarden vault. -i names the public key; ssh asks the
+# agent for the matching private key.
+[core]
+        sshCommand = ssh -o IdentitiesOnly=yes -i ~/.ssh/id_ed25519_work.pub

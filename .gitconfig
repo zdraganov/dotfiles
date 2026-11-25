@@ -1,7 +1,7 @@
 [user]
         name = Zhivko Draganov
         email = zhivko.draganov@gmail.com
-# Work repos get the work e-mail (same GitHub account, different verified address).
+# Work repos get the work e-mail and the work SSH key (same GitHub account).
 [includeIf "gitdir:~/Dev/seven-of-di/"]
         path = ~/Dev/zdraganov/dotfiles/.gitconfig-work
 [push]
